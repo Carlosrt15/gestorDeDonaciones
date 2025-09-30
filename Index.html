@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="./Style/Styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gestorDeDonaciones</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Donaciones</title>
+  <link rel="stylesheet" href="./Style/Styles.css">
 </head>
 <body>
+  <header>
+    <h1> Donaciones a Causas Beneficas</h1>
+    <p>Haz cli en el logo de la organizacion para aportar tu donación.</p>
+  </header>
+
+  
+  <main>
+    <section id="organizaciones">
+      <h2>Organizaciones disponibles</h2>
+      <div class="-organizaciones">
+        <div class="org" >
+          <img src="./img/cruzRoja.png" alt="Cruz Roja" id="CruzRoja">
+          <p>Cruz Roja - 5€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/unicef.png" alt="UNICEF" id="Unicef">
+          <p>UNICEF - 10€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/wwf.png" alt="WWF" id="Wwf">
+          <p>WWF - 7€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/medicos.jpg" alt="Médicos Sin Fronteras" id="MedicosFronteras">
+          <p>MSF - 12€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/savetheclindren.jfif" alt="Save the Children" id="STC">
+          <p>Save the Children - 8€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/Greenpeace.jpg" alt="Greenpeace" id="Greenpeace">
+          <p>Greenpeace - 6€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/Cáritas.png" alt="Cáritas" id="Caritas">
+          <p>Cáritas - 9€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/Amnistía Internacional.jfif" alt="Amnistía Internacional" id="AI">
+          <p>Amnistía Internacional - 11€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/Fundación Vicente Ferrer.jfif" id="FVF">
+          <p>Fundación Vicente Ferrer - 4€</p>
+        </div>
+        <div class="org" >
+          <img src="./img/Aldeas Infantiles.jfif" alt="Aldeas Infantiles" id="AldeasInfantiles">
+          <p>Aldeas Infantiles - 13€</p>
+        </div>
+      </div>
+    </section>
+
     
+    <section id="aportaciones">
+      <h2>Mis aportaciones</h2>
+      <p id="contador">Número total: 0 | Total donado: 0€</p>
+    </section>
+
+    
+    <section id="resumen">
+      <h2>Resumen final</h2>
+      <button id="finalizar">Finalizar trámite</button>
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>Proyecto 2º DAW - Página de Donaciones - Carlos Rodríguez</p>
+  </footer>
+
+  <script src="./JS/Scripts.js"></script>
 </body>
 </html>

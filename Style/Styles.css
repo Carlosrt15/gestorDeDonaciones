@@ -1,4 +1,12 @@
 body{
     font-family: Arial, sans-serif;
-    background-color: #F8F9FA;
+    background-color: #F1FAEE;
+    color: #1D3557;
+}
+
+.org img {
+  width: 120px;      
+  max-height: 120px; 
+    display: block;
+  
 }
