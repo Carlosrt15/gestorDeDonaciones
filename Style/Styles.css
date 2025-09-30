@@ -8,5 +8,6 @@ body{
   width: 120px;      
   max-height: 120px; 
     display: block;
+    border-radius: 10px;
   
 }

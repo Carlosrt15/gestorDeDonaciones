@@ -1,4 +1,8 @@
-function totalAportacionesYDinero(){
+
+let contadorGlobal = [];
+
+
+function contadorCruzRoja(){
     let precioCruzRoja = 5;
     let contadorCruzRoja = 0;
    
@@ -7,7 +11,7 @@ function totalAportacionesYDinero(){
 
         imgCruzRoja.addEventListener("click", () => {
         contadorCruzRoja++;
-        
+        contadorGlobal.push(1);
         let TotalCuentas = precioCruzRoja * contadorCruzRoja;
         console.log("Veces clicado en cruz roja:  "+contadorCruzRoja);
         console.log(TotalCuentas+" €");
@@ -28,7 +32,7 @@ function contadorUnicef(){
 
     imgUnicef.addEventListener("click", () => {
         contadorUnicef++;
-        
+        contadorGlobal.push(1);
         
         let TotalUnicef = precioUnicef * contadorUnicef ;
         console.log("Veces clicado en Unicef:  "+contadorUnicef);
@@ -38,5 +42,5 @@ function contadorUnicef(){
 
 }
 
-totalAportacionesYDinero();
+contadorCruzRoja();
 contadorUnicef();
