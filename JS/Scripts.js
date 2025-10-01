@@ -1,5 +1,7 @@
 
 let contadorGlobal = [];
+// Revisar en clase
+let organizacionesSeleccionadas = [];
 
 
 
@@ -16,6 +18,11 @@ function contadorCruzRoja(){
         let TotalCuentas = precioCruzRoja * contadorCruzRoja;
         console.log("Veces clicado en cruz roja:  "+contadorCruzRoja);
         console.log(TotalCuentas+" €");
+
+        // Revisar en clase
+        if(contadorCruzRoja === 1){
+            organizacionesSeleccionadas.push("CruzRoja");
+        }
                 
     });
    
@@ -193,7 +200,9 @@ function botonFinalizar(){
 }
 
 
-    
+    function mostrarOng(){
+        console.log(organizacionesSeleccionadas);
+    }
 
 
 
@@ -210,3 +219,6 @@ contadorCaritas();
 contadorFVF();
 contadorAldeasInfantiles();
 botonFinalizar();
+// Revisar en clase
+mostrarOng();
+
