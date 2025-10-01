@@ -42,5 +42,46 @@ function contadorUnicef(){
 
 }
 
+
+function contadorWwf(){
+    let precioWwf = 7;
+    let contadorWwf = 0;
+   
+    
+    const imgWwf = document.getElementById("Wwf");
+
+        imgWwf.addEventListener("click", () => {
+        contadorWwf++;
+        contadorGlobal.push(1);
+        let TotalCuentas = precioWwf * contadorWwf;
+        console.log("Veces clicado en Wwf:  "+contadorWwf);
+        console.log(TotalCuentas+" €");
+                
+    });
+   
+        
+}
+
+function contadorMsf(){
+    let precioMsf = 12;
+    let contadorMsf = 0;
+   
+    
+    const imgMsf = document.getElementById("MSF");
+
+        imgMsf.addEventListener("click", () => {
+        contadorMsf++;
+        contadorGlobal.push(1);
+        let TotalCuentas = precioMsf * contadorMsf;
+        console.log("Veces clicado en Msf:  "+contadorMsf);
+        console.log(TotalCuentas+" €");
+                
+    });
+   
+        
+}
+
 contadorCruzRoja();
 contadorUnicef();
+contadorWwf();
+contadorMsf();
