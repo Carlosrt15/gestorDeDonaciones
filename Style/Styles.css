@@ -11,3 +11,7 @@ body{
     border-radius: 10px;
   
 }
+.Contenedororganizaciones2{
+  display: flex;
+  gap: 30px;
+}
