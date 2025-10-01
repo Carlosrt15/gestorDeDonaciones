@@ -2,6 +2,7 @@
 let contadorGlobal = [];
 
 
+
 function contadorCruzRoja(){
     let precioCruzRoja = 5;
     let contadorCruzRoja = 0;
@@ -183,13 +184,17 @@ function botonFinalizar(){
     const tomarDiv = document.getElementById("resultado");
 
     tomarBoton.addEventListener("click", () => {
-        tomarDiv.innerHTML = "<p> Pulsaste el boton </p>"
+        tomarDiv.innerHTML = "<p> Pulsaste el boton </p>  <p>  "+contadorGlobal.length+" </p>"
 
     });
 
     
 
 }
+
+
+    
+
 
 
 
