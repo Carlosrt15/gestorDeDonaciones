@@ -276,7 +276,64 @@ function contadorAldeasInfantiles(){
     });
 }
 
+function botonFinalizar() {
+    const tomarBoton = document.getElementById("finalizar");
+    const tomarDiv = document.getElementById("resultado");
 
+    tomarBoton.addEventListener("click", () => {
+        let totalDonacion = 0;
+        let totalAportaciones = 0;
+        let resultadoHTML = "<h3>Resumen de donaciones</h3><ul>";
+
+        let organizaciones = [
+            { nombre: "Cruz Roja", contador: contadorCruzRojaGlobal, total: totalCruzRoja },
+            { nombre: "Unicef", contador: contadorUnicefGlobal, total: totalUnicef },
+            { nombre: "WWF", contador: contadorWwfGlobal, total: totalWwf },
+            { nombre: "MSF", contador: contadorMsfGlobal, total: totalMsf },
+            { nombre: "STC", contador: contadorSTCGlobal, total: totalSTC },
+            { nombre: "Greenpeace", contador: contadorGreenpeaceGlobal, total: totalGreenpeace },
+            { nombre: "AI", contador: contadorAIGlobal, total: totalAI },
+            { nombre: "Cáritas", contador: contadorCaritasGlobal, total: totalCaritas },
+            { nombre: "FVF", contador: contadorFVFGlobal, total: totalFVF },
+            { nombre: "Aldeas Infantiles", contador: contadorAldeasGlobal, total: totalAldeas }
+        ];
+
+        organizaciones = organizaciones.filter(org => org.contador > 0);
+
+        
+        organizaciones.sort((a, b) => {
+            if (a.nombre > b.nombre) return -1;
+            if (a.nombre < b.nombre) return 1;
+            return 0;
+        });
+
+        for (let org of organizaciones) {
+            resultadoHTML += "<li>" + org.nombre + " ---- " + org.contador + " aportaciones (" + org.total + " €)</li>";
+            totalDonacion += org.total;
+            totalAportaciones += org.contador;
+        }
+
+        resultadoHTML += "</ul>";
+        resultadoHTML += "<p><strong>Donación final:</strong> " + totalDonacion + " €</p>";
+        let media = totalAportaciones > 0 ? (totalDonacion / totalAportaciones).toFixed(2) : "0.00";
+        resultadoHTML += "<p><strong>Donación media:</strong> " + media + " €/aportación</p>";
+
+        tomarDiv.innerHTML = resultadoHTML;
+        resumenMostrado = true;
+
+        contadorGlobal = [];
+        organizacionesSeleccionadas = [];
+        contadorCruzRojaGlobal = 0; totalCruzRoja = 0;
+        contadorUnicefGlobal = 0; totalUnicef = 0;
+        contadorWwfGlobal = 0; totalWwf = 0;
+        contadorMsfGlobal = 0; totalMsf = 0;
+        contadorSTCGlobal = 0; totalSTC = 0;
+        contadorGreenpeaceGlobal = 0; totalGreenpeace = 0;
+        contadorAIGlobal = 0; totalAI = 0;
+        contadorCaritasGlobal = 0; totalCaritas = 0;
+        contadorFVFGlobal = 0; totalFVF = 0;
+        contadorAldeasGlobal = 0; totalAldeas = 0;
+    });
 
 }
 
