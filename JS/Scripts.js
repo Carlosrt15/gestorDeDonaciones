@@ -1,7 +1,7 @@
-
 let contadorGlobal = [];
-// Revisar en clase
 let organizacionesSeleccionadas = [];
+
+let resumenMostrado = false; 
 
 let contadorCruzRojaGlobal = 0, totalCruzRoja = 0;
 let contadorUnicefGlobal = 0, totalUnicef = 0;
@@ -15,56 +15,54 @@ let contadorFVFGlobal = 0, totalFVF = 0;
 let contadorAldeasGlobal = 0, totalAldeas = 0;
 
 
-
 function contadorCruzRoja(){
     let precioCruzRoja = 5;
     let contadorCruzRoja = 0;
-   
-    
     const imgCruzRoja = document.getElementById("CruzRoja");
 
-        imgCruzRoja.addEventListener("click", () => {
+    imgCruzRoja.addEventListener("click", () => {
+        
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
+        
         contadorCruzRoja = contadorCruzRojaGlobal;
         contadorCruzRoja++;
         contadorGlobal.push(1);
         let TotalCuentas = precioCruzRoja * contadorCruzRoja;
-        
-        
 
-        
-        if(contadorCruzRoja === 1){
+        if (contadorCruzRoja === 1) {
             organizacionesSeleccionadas.push("CruzRoja");
         }
 
         contadorCruzRojaGlobal = contadorCruzRoja;
-            totalCruzRoja = TotalCuentas;
-                
+        totalCruzRoja = TotalCuentas;
     });
-   
-        
 }
-  
-        
+
 
 function contadorUnicef(){
     let precioUnicef = 10;
     let contadorUnicef = 0;
-
-    const imgUnicef =  document.getElementById("Unicef");
+    const imgUnicef = document.getElementById("Unicef");
 
     imgUnicef.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorUnicef = contadorUnicefGlobal;
         contadorUnicef++;
         contadorGlobal.push(1);
-        
-        let TotalUnicef = precioUnicef * contadorUnicef ;
-        
+        let TotalUnicef = precioUnicef * contadorUnicef;
 
-        if(contadorUnicef === 1){
+        if (contadorUnicef === 1) {
             organizacionesSeleccionadas.push("Unicef");
         }
 
-        // actualizar globales
         contadorUnicefGlobal = contadorUnicef;
         totalUnicef = TotalUnicef;
     });
@@ -74,23 +72,25 @@ function contadorUnicef(){
 function contadorWwf(){
     let precioWwf = 7;
     let contadorWwf = 0;
-   
     const imgWwf = document.getElementById("Wwf");
 
     imgWwf.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorWwf = contadorWwfGlobal;
         contadorWwf++;
         contadorGlobal.push(1);
         let TotalCuentas = precioWwf * contadorWwf;
-        
 
-        if(contadorWwf === 1){
+        if (contadorWwf === 1) {
             organizacionesSeleccionadas.push("WWF");
         }
 
-       
         contadorWwfGlobal = contadorWwf;
-                     totalWwf = TotalCuentas;
+        totalWwf = TotalCuentas;
     });
 }
 
@@ -98,21 +98,23 @@ function contadorWwf(){
 function contadorMsf(){
     let precioMsf = 12;
     let contadorMsf = 0;
-   
     const imgMsf = document.getElementById("MSF");
 
     imgMsf.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorMsf = contadorMsfGlobal;
         contadorMsf++;
         contadorGlobal.push(1);
         let TotalCuentas = precioMsf * contadorMsf;
-        
 
-        if(contadorMsf === 1){
+        if (contadorMsf === 1) {
             organizacionesSeleccionadas.push("MSF");
         }
 
-       
         contadorMsfGlobal = contadorMsf;
         totalMsf = TotalCuentas;
     });
@@ -122,21 +124,23 @@ function contadorMsf(){
 function contadorSTC(){
     let precioSTC = 8;
     let contadorSTC = 0;
-   
     const imgSTC = document.getElementById("STC");
 
     imgSTC.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorSTC = contadorSTCGlobal;
         contadorSTC++;
         contadorGlobal.push(1);
         let TotalCuentas = precioSTC * contadorSTC;
-        
-                
-        if(contadorSTC === 1){
+
+        if (contadorSTC === 1) {
             organizacionesSeleccionadas.push("STC");
         }
 
-        
         contadorSTCGlobal = contadorSTC;
         totalSTC = TotalCuentas;
     });
@@ -144,23 +148,25 @@ function contadorSTC(){
 
 
 function contadorGreenpeace(){
-    let precioGreenpeace = 6;  
+    let precioGreenpeace = 6;
     let contadorGreenpeace = 0;
-
     const imgGreenpeace = document.getElementById("Greenpeace");
 
     imgGreenpeace.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorGreenpeace = contadorGreenpeaceGlobal;
         contadorGreenpeace++;
         contadorGlobal.push(1);
         let TotalCuentas = precioGreenpeace * contadorGreenpeace;
-        
 
-        if(contadorGreenpeace === 1){
+        if (contadorGreenpeace === 1) {
             organizacionesSeleccionadas.push("Greenpeace");
         }
 
-      
         contadorGreenpeaceGlobal = contadorGreenpeace;
         totalGreenpeace = TotalCuentas;
     });
@@ -168,23 +174,25 @@ function contadorGreenpeace(){
 
 
 function contadorAI(){
-    let precioAI = 11; 
+    let precioAI = 11;
     let contadorAI = 0;
-
     const imgAI = document.getElementById("AI");
 
     imgAI.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorAI = contadorAIGlobal;
         contadorAI++;
         contadorGlobal.push(1);
         let TotalCuentas = precioAI * contadorAI;
-        
 
-        if(contadorAI === 1){
+        if (contadorAI === 1) {
             organizacionesSeleccionadas.push("AI");
         }
 
-        
         contadorAIGlobal = contadorAI;
         totalAI = TotalCuentas;
     });
@@ -192,24 +200,25 @@ function contadorAI(){
 
 
 function contadorCaritas(){
-    let precioCaritas = 9; 
+    let precioCaritas = 9;
     let contadorCaritas = 0;
-
     const imgCaritas = document.getElementById("Caritas");
 
     imgCaritas.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
 
         contadorCaritas = contadorCaritasGlobal;
         contadorCaritas++;
         contadorGlobal.push(1);
         let TotalCuentas = precioCaritas * contadorCaritas;
-        
 
-        if(contadorCaritas === 1){
+        if (contadorCaritas === 1) {
             organizacionesSeleccionadas.push("Caritas");
         }
 
-        // actualizar globales
         contadorCaritasGlobal = contadorCaritas;
         totalCaritas = TotalCuentas;
     });
@@ -217,23 +226,25 @@ function contadorCaritas(){
 
 
 function contadorFVF(){
-    let precioFVF = 4; 
+    let precioFVF = 4;
     let contadorFVF = 0;
-
     const imgFVF = document.getElementById("FVF");
 
     imgFVF.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorFVF = contadorFVFGlobal;
         contadorFVF++;
         contadorGlobal.push(1);
         let TotalCuentas = precioFVF * contadorFVF;
-        
 
-        if(contadorFVF === 1){
+        if (contadorFVF === 1) {
             organizacionesSeleccionadas.push("FVF");
         }
 
-        
         contadorFVFGlobal = contadorFVF;
         totalFVF = TotalCuentas;
     });
@@ -241,28 +252,29 @@ function contadorFVF(){
 
 
 function contadorAldeasInfantiles(){
-    let precioAldeas = 13; 
+    let precioAldeas = 13;
     let contadorAldeas = 0;
-
     const imgAldeas = document.getElementById("AldeasInfantiles");
 
     imgAldeas.addEventListener("click", () => {
+        if (resumenMostrado) {
+            document.getElementById("resultado").innerHTML = "";
+            resumenMostrado = false;
+        }
+
         contadorAldeas = contadorAldeasGlobal;
         contadorAldeas++;
         contadorGlobal.push(1);
         let TotalCuentas = precioAldeas * contadorAldeas;
-        
 
-        if(contadorAldeas === 1){
+        if (contadorAldeas === 1) {
             organizacionesSeleccionadas.push("Aldeas infantiles");
         }
 
-        // actualizar globales
         contadorAldeasGlobal = contadorAldeas;
         totalAldeas = TotalCuentas;
     });
 }
-
 
 
 function botonFinalizar() {
@@ -336,11 +348,20 @@ function botonFinalizar() {
 
         resultadoHTML += "</ul>";
         resultadoHTML += "<p><strong>Donación final:</strong> " + totalDonacion + " €</p>";
-        resultadoHTML += "<p><strong>Donación media:</strong> " + (totalDonacion / totalAportaciones).toFixed(2) + " €/aportación</p>";
+
+        var media = 0;
+        if (totalAportaciones > 0) {
+            media = (totalDonacion / totalAportaciones).toFixed(2);
+        } else {
+            media = "0.00";
+        }
+
+        resultadoHTML += "<p><strong>Donación media:</strong> " + media + " €/aportación</p>";
 
         tomarDiv.innerHTML = resultadoHTML;
 
-
+        
+        resumenMostrado = true;
 
        
         contadorGlobal = [];
@@ -350,30 +371,14 @@ function botonFinalizar() {
         contadorUnicefGlobal = 0; totalUnicef = 0;
         contadorWwfGlobal = 0; totalWwf = 0;
         contadorMsfGlobal = 0; totalMsf = 0;
-        contadorSTCGlobal = 0; totalSTC = 0 ;
+        contadorSTCGlobal = 0; totalSTC = 0;
         contadorGreenpeaceGlobal = 0; totalGreenpeace = 0;
         contadorAIGlobal = 0; totalAI = 0;
         contadorCaritasGlobal = 0; totalCaritas = 0;
         contadorFVFGlobal = 0; totalFVF = 0;
         contadorAldeasGlobal = 0; totalAldeas = 0;
-
-         totalDonacion = 0;
-         totalAportaciones = 0;
-
     });
-
-     
-
-
 }
-
-
-
-    
-
-
-
-
 
 contadorCruzRoja();
 contadorUnicef();
@@ -386,6 +391,3 @@ contadorCaritas();
 contadorFVF();
 contadorAldeasInfantiles();
 botonFinalizar();
-// Revisar en clase
-
-
