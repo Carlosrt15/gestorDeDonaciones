@@ -24,11 +24,12 @@ function contadorCruzRoja(){
     const imgCruzRoja = document.getElementById("CruzRoja");
 
         imgCruzRoja.addEventListener("click", () => {
+        contadorCruzRoja = contadorCruzRojaGlobal;
         contadorCruzRoja++;
         contadorGlobal.push(1);
         let TotalCuentas = precioCruzRoja * contadorCruzRoja;
-        console.log("Veces clicado en cruz roja:  "+contadorCruzRoja);
-        console.log(TotalCuentas+" €");
+        
+        
 
         
         if(contadorCruzRoja === 1){
@@ -52,12 +53,12 @@ function contadorUnicef(){
     const imgUnicef =  document.getElementById("Unicef");
 
     imgUnicef.addEventListener("click", () => {
+        contadorUnicef = contadorUnicefGlobal;
         contadorUnicef++;
         contadorGlobal.push(1);
         
         let TotalUnicef = precioUnicef * contadorUnicef ;
-        console.log("Veces clicado en Unicef: " + contadorUnicef);
-        console.log(TotalUnicef + " €");
+        
 
         if(contadorUnicef === 1){
             organizacionesSeleccionadas.push("Unicef");
@@ -77,11 +78,11 @@ function contadorWwf(){
     const imgWwf = document.getElementById("Wwf");
 
     imgWwf.addEventListener("click", () => {
+        contadorWwf = contadorWwfGlobal;
         contadorWwf++;
         contadorGlobal.push(1);
         let TotalCuentas = precioWwf * contadorWwf;
-        console.log("Veces clicado en Wwf: " + contadorWwf);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorWwf === 1){
             organizacionesSeleccionadas.push("WWF");
@@ -101,11 +102,11 @@ function contadorMsf(){
     const imgMsf = document.getElementById("MSF");
 
     imgMsf.addEventListener("click", () => {
+        contadorMsf = contadorMsfGlobal;
         contadorMsf++;
         contadorGlobal.push(1);
         let TotalCuentas = precioMsf * contadorMsf;
-        console.log("Veces clicado en Msf: " + contadorMsf);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorMsf === 1){
             organizacionesSeleccionadas.push("MSF");
@@ -125,11 +126,11 @@ function contadorSTC(){
     const imgSTC = document.getElementById("STC");
 
     imgSTC.addEventListener("click", () => {
+        contadorSTC = contadorSTCGlobal;
         contadorSTC++;
         contadorGlobal.push(1);
         let TotalCuentas = precioSTC * contadorSTC;
-        console.log("Veces clicado en STC: " + contadorSTC);
-        console.log(TotalCuentas + " €");
+        
                 
         if(contadorSTC === 1){
             organizacionesSeleccionadas.push("STC");
@@ -149,11 +150,11 @@ function contadorGreenpeace(){
     const imgGreenpeace = document.getElementById("Greenpeace");
 
     imgGreenpeace.addEventListener("click", () => {
+        contadorGreenpeace = contadorGreenpeaceGlobal;
         contadorGreenpeace++;
         contadorGlobal.push(1);
         let TotalCuentas = precioGreenpeace * contadorGreenpeace;
-        console.log("Veces clicado en Greenpeace: " + contadorGreenpeace);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorGreenpeace === 1){
             organizacionesSeleccionadas.push("Greenpeace");
@@ -173,11 +174,11 @@ function contadorAI(){
     const imgAI = document.getElementById("AI");
 
     imgAI.addEventListener("click", () => {
+        contadorAI = contadorAIGlobal;
         contadorAI++;
         contadorGlobal.push(1);
         let TotalCuentas = precioAI * contadorAI;
-        console.log("Veces clicado en AI: " + contadorAI);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorAI === 1){
             organizacionesSeleccionadas.push("AI");
@@ -197,11 +198,12 @@ function contadorCaritas(){
     const imgCaritas = document.getElementById("Caritas");
 
     imgCaritas.addEventListener("click", () => {
+
+        contadorCaritas = contadorCaritasGlobal;
         contadorCaritas++;
         contadorGlobal.push(1);
         let TotalCuentas = precioCaritas * contadorCaritas;
-        console.log("Veces clicado en Cáritas: " + contadorCaritas);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorCaritas === 1){
             organizacionesSeleccionadas.push("Caritas");
@@ -221,11 +223,11 @@ function contadorFVF(){
     const imgFVF = document.getElementById("FVF");
 
     imgFVF.addEventListener("click", () => {
+        contadorFVF = contadorFVFGlobal;
         contadorFVF++;
         contadorGlobal.push(1);
         let TotalCuentas = precioFVF * contadorFVF;
-        console.log("Veces clicado en FVF: " + contadorFVF);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorFVF === 1){
             organizacionesSeleccionadas.push("FVF");
@@ -245,11 +247,11 @@ function contadorAldeasInfantiles(){
     const imgAldeas = document.getElementById("AldeasInfantiles");
 
     imgAldeas.addEventListener("click", () => {
+        contadorAldeas = contadorAldeasGlobal;
         contadorAldeas++;
         contadorGlobal.push(1);
         let TotalCuentas = precioAldeas * contadorAldeas;
-        console.log("Veces clicado en Aldeas Infantiles: " + contadorAldeas);
-        console.log(TotalCuentas + " €");
+        
 
         if(contadorAldeas === 1){
             organizacionesSeleccionadas.push("Aldeas infantiles");
@@ -263,25 +265,111 @@ function contadorAldeasInfantiles(){
 
 
 
-function botonFinalizar(){
-
+function botonFinalizar() {
     const tomarBoton = document.getElementById("finalizar");
     const tomarDiv = document.getElementById("resultado");
 
     tomarBoton.addEventListener("click", () => {
-        tomarDiv.innerHTML = "<p> Pulsaste el boton </p>  <p>  "+contadorGlobal.length+" </p>"+
-        ""
+        let totalDonacion = 0;
+        let totalAportaciones = 0;
+        let resultadoHTML = "<h3>Resumen de donaciones</h3><ul>";
+
+        if (contadorCruzRojaGlobal > 0) {
+            resultadoHTML += "<li>Cruz Roja ---- " + contadorCruzRojaGlobal + " aportaciones (" + totalCruzRoja + " €)</li>";
+            totalDonacion += totalCruzRoja;
+            totalAportaciones += contadorCruzRojaGlobal;
+        }
+
+        if (contadorUnicefGlobal > 0) {
+            resultadoHTML += "<li>Unicef ---- " + contadorUnicefGlobal + " aportaciones (" + totalUnicef + " €)</li>";
+            totalDonacion += totalUnicef;
+            totalAportaciones += contadorUnicefGlobal;
+        }
+
+        if (contadorWwfGlobal > 0) {
+            resultadoHTML += "<li>WWF ---- " + contadorWwfGlobal + " aportaciones (" + totalWwf + " €)</li>";
+            totalDonacion += totalWwf;
+            totalAportaciones += contadorWwfGlobal;
+        }
+
+        if (contadorMsfGlobal > 0) {
+            resultadoHTML += "<li>MSF ---- " + contadorMsfGlobal + " aportaciones (" + totalMsf + " €)</li>";
+            totalDonacion += totalMsf;
+            totalAportaciones += contadorMsfGlobal;
+        }
+
+        if (contadorSTCGlobal > 0) {
+            resultadoHTML += "<li>STC ---- " + contadorSTCGlobal + " aportaciones (" + totalSTC + " €)</li>";
+            totalDonacion += totalSTC;
+            totalAportaciones += contadorSTCGlobal;
+        }
+
+        if (contadorGreenpeaceGlobal > 0) {
+            resultadoHTML += "<li>Greenpeace ---- " + contadorGreenpeaceGlobal + " aportaciones (" + totalGreenpeace + " €)</li>";
+            totalDonacion += totalGreenpeace;
+            totalAportaciones += contadorGreenpeaceGlobal;
+        }
+
+        if (contadorAIGlobal > 0) {
+            resultadoHTML += "<li>AI ---- " + contadorAIGlobal + " aportaciones (" + totalAI + " €)</li>";
+            totalDonacion += totalAI;
+            totalAportaciones += contadorAIGlobal;
+        }
+
+        if (contadorCaritasGlobal > 0) {
+            resultadoHTML += "<li>Cáritas ---- " + contadorCaritasGlobal + " aportaciones (" + totalCaritas + " €)</li>";
+            totalDonacion += totalCaritas;
+            totalAportaciones += contadorCaritasGlobal;
+        }
+
+        if (contadorFVFGlobal > 0) {
+            resultadoHTML += "<li>FVF ---- " + contadorFVFGlobal + " aportaciones (" + totalFVF + " €)</li>";
+            totalDonacion += totalFVF;
+            totalAportaciones += contadorFVFGlobal;
+        }
+
+        if (contadorAldeasGlobal > 0) {
+            resultadoHTML += "<li>Aldeas Infantiles ---- " + contadorAldeasGlobal + " aportaciones (" + totalAldeas + " €)</li>";
+            totalDonacion += totalAldeas;
+            totalAportaciones += contadorAldeasGlobal;
+        }
+
+        resultadoHTML += "</ul>";
+        resultadoHTML += "<p><strong>Donación final:</strong> " + totalDonacion + " €</p>";
+        resultadoHTML += "<p><strong>Donación media:</strong> " + (totalDonacion / totalAportaciones).toFixed(2) + " €/aportación</p>";
+
+        tomarDiv.innerHTML = resultadoHTML;
+
+
+
+       
+        contadorGlobal = [];
+        organizacionesSeleccionadas = [];
+
+        contadorCruzRojaGlobal = 0; totalCruzRoja = 0;
+        contadorUnicefGlobal = 0; totalUnicef = 0;
+        contadorWwfGlobal = 0; totalWwf = 0;
+        contadorMsfGlobal = 0; totalMsf = 0;
+        contadorSTCGlobal = 0; totalSTC = 0 ;
+        contadorGreenpeaceGlobal = 0; totalGreenpeace = 0;
+        contadorAIGlobal = 0; totalAI = 0;
+        contadorCaritasGlobal = 0; totalCaritas = 0;
+        contadorFVFGlobal = 0; totalFVF = 0;
+        contadorAldeasGlobal = 0; totalAldeas = 0;
+
+         totalDonacion = 0;
+         totalAportaciones = 0;
 
     });
 
-    
+     
+
 
 }
 
 
-    function mostrarOng(){
-        console.log(organizacionesSeleccionadas);
-    }
+
+    
 
 
 
@@ -299,5 +387,5 @@ contadorFVF();
 contadorAldeasInfantiles();
 botonFinalizar();
 // Revisar en clase
-mostrarOng();
+
 
