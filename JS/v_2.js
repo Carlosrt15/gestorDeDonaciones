@@ -17,7 +17,7 @@ let totalDinero = 0;
 
 
 organizaciones.forEach(orgs => {
-        let img = document.getElementById(orgs.id);
+        let img = document.getElementById(String(orgs.id));
 
         if(img) {
             img.addEventListener("click", () => contarPulsar(orgs.id));
@@ -59,15 +59,35 @@ function inicializarHtml(){
 
         let lista = organizaciones.filter(orgs  => orgs.interacciones > 0);
 
+            lista.sort(function(a, b) {
+            if (a.nombre < b.nombre) return -1;
+            if (a.nombre > b.nombre) return 1;
+            return 0;
+        });
         
-        
+        let html = "";
 
+        for (let i = lista.length -1; i >= 0; i--) {
+            let orgs = lista [i];
+            html += orgs.nombre + " ---- " + orgs.interacciones + " aportaciones<br>";
+        }
+
+        html += "<br>Donación final: " + totalDinero + " €<br>";
+        if (totalAportaciones > 0) {
+            let media = (totalDinero / totalAportaciones).toFixed(1);
+            html += "Donación media: " + media + " €/aportación";
+        }
+
+        document.getElementById("resultado").innerHTML = html;
+
+
+        
 
     });
 
+        
 
 }
 
 
 inicializarHtml();
-
