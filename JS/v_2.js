@@ -11,7 +11,10 @@ let organizaciones = [
     {id: 9, nombre: "Aldeas" , precio: 13, interacciones: 0,total: 0},
 ];
 
-let mostrarHtml = false;
+let totalAportaciones = 0;
+let totalDinero = 0;
+
+
 
 organizaciones.forEach(orgs => {
         let img = document.getElementById(orgs.id);
@@ -23,29 +26,48 @@ organizaciones.forEach(orgs => {
 
 
 function contarPulsar(id) {
-    let orgs = organizaciones[id];
+    let orgs = organizaciones.find(o => o.id === id);
 
     
 
     if(orgs) {
+
         orgs.interacciones++;
-        TotalOrgDonado(id);
+        orgs.total = orgs.precio * orgs.interacciones;
+
+        totalAportaciones = totalAportaciones + 1;
+        totalDinero = totalDinero + orgs.precio;
+
         console.log(orgs.nombre+" clicado "+orgs.interacciones+ " veces");
+
+        document.getElementById("resultado").innerHTML = " ";
+
+        
     }
        
 
 }
 
-function TotalOrgDonado(id){
-    let orgs = organizaciones[id];
+
+
+function inicializarHtml(){
+
+    let button = document.getElementById("finalizar");
     
-    if(orgs.interacciones >= 0) {
-        orgs.total = orgs.precio * orgs.interacciones;
-        console.log(orgs.nombre+" Tiene un total de : "+orgs.total);
-    }
+        
+    button.addEventListener("click", () =>  {
+
+        let lista = organizaciones.filter(orgs  => orgs.interacciones > 0);
+
+        
+        
+
+
+    });
+
 
 }
 
 
-
+inicializarHtml();
 
