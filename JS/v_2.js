@@ -24,7 +24,6 @@ organizaciones.forEach(orgs => {
         }
     });
 
-
 function contarPulsar(id) {
     let orgs = organizaciones.find(o => o.id === id);
 
@@ -38,16 +37,13 @@ function contarPulsar(id) {
         totalAportaciones = totalAportaciones + 1;
         totalDinero = totalDinero + orgs.precio;
 
-        console.log(orgs.nombre+" clicado "+orgs.interacciones+ " veces");
-
+        
         document.getElementById("resultado").innerHTML = " ";
 
         
     }
        
-
 }
-
 
 
 function inicializarHtml(){
@@ -80,6 +76,14 @@ function inicializarHtml(){
 
         document.getElementById("resultado").innerHTML = html;
 
+        totalAportaciones = 0;
+        totalDinero = 0;
+
+        organizaciones.forEach(o => {
+                o.interacciones = 0;
+                o.total = 0;
+        });
+
 
         
 
@@ -88,6 +92,5 @@ function inicializarHtml(){
         
 
 }
-
 
 inicializarHtml();
