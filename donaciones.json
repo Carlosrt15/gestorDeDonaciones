@@ -1,0 +1,83 @@
+{
+  "organizaciones": [
+    {
+      "id": 1,
+      "nombre": "Cruz Roja",
+      "acogida": true,
+      "rangoEdad": "tercera edad"
+    },
+    {
+      "id": 2,
+      "nombre": "UNICEF",
+      "acogida": false,
+      "rangoEdad": "infancia"
+    },
+    {
+      "id": 3,
+      "nombre": "WWF",
+      "multiraza": true,
+      "ambito": "internacional"
+    },
+    {
+      "id": 4,
+      "nombre": "Médicos Sin Fronteras",
+      "acogida": false,
+      "rangoEdad": "adolescencia"
+    },
+    {
+      "id": 5,
+      "nombre": "Save the Children",
+      "acogida": false,
+      "rangoEdad": "infancia"
+    },
+    {
+      "id": 6,
+      "nombre": "Greenpeace",
+      "multiraza": false,
+      "ambito": "nacional"
+    },
+    {
+      "id": 7,
+      "nombre": "Cáritas",
+      "acogida": true,
+      "rangoEdad": "tercera edad"
+    },
+    {
+      "id": 8,
+      "nombre": "Amnistía Internacional",
+      "acogida": false,
+      "rangoEdad": "adolescencia"
+    },
+    {
+      "id": 9,
+      "nombre": "Fundación Vicente Ferrer",
+      "acogida": true,
+      "rangoEdad": "tercera edad"
+    },
+    {
+      "id": 10,
+      "nombre": "Aldeas Infantiles",
+      "acogida": true,
+      "rangoEdad": "infancia"
+    }
+  ],
+
+  "tramiteDonacion": [
+    {
+      "id": 1,
+      "fecha": "11/2025",
+      "donaciones": [
+        {
+          "idOrganizacion": 1,
+          "importeTotal": 45.78,
+          "numDonaciones": 5
+        },
+        {
+          "idOrganizacion": 2,
+          "importeTotal": 37.23,
+          "numDonaciones": 2
+        }
+      ]
+    }
+  ]
+}
