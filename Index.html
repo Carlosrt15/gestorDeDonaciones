@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Donaciones</title>
-  <link rel="stylesheet" href="./Style/Styles.css">
-</head>
-<body>
-  <header>
-    <h1> Donaciones a Causas Beneficas</h1>
-    <p>Haz cli en el logo de la organizacion para aportar tu donación.</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Donaciones</title>
+    <link rel="stylesheet" href="./Style/Styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Donaciones a Causas Beneficas</h1>
+      <p>Haz cli en el logo de la organizacion para aportar tu donación.</p>
+    </header>
 
-  
-  <main>
-    <section id="organizaciones">
-  <h2>Organizaciones disponibles</h2>
-  <div class="Contenedororganizaciones2">
-    <div class="org">
-      <img src="./img/cruzRoja.png" alt="Cruz Roja" id="1">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/unicef.png" alt="UNICEF" id="2">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/wwf.png" alt="WWF" id="3">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/medicos.jpg" alt="Médicos Sin Fronteras" id="4">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/savetheclindren.jfif" alt="Save the Children" id="5">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/Greenpeace.jpg" alt="Greenpeace" id="6">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/Cáritas.png" alt="Cáritas" id="7">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/Amnistía Internacional.jfif" alt="Amnistía Internacional" id="8">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/Fundación Vicente Ferrer.jfif" alt="Fundación Vicente Ferrer" id="9">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-    <div class="org">
-      <img src="./img/Aldeas Infantiles.jfif" alt="Aldeas Infantiles" id="10">
-      <input type="number" placeholder="Cantidad (€)">
-    </div>
-  </div>
-</section>
+    <main>
+      <section id="organizaciones">
+        <h2>Organizaciones disponibles</h2>
+        <div class="Contenedororganizaciones2">
+          <div class="org">
+            <img src="./img/cruzRoja.png" alt="Cruz Roja" id="1" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img src="./img/unicef.png" alt="UNICEF" id="2" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img src="./img/wwf.png" alt="WWF" id="3" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img src="./img/medicos.jpg" alt="Médicos Sin Fronteras" id="4" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img
+              src="./img/savetheclindren.jfif"
+              alt="Save the Children"
+              id="5"
+            />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img src="./img/Greenpeace.jpg" alt="Greenpeace" id="6" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img src="./img/Cáritas.png" alt="Cáritas" id="7" />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img
+              src="./img/Amnistía Internacional.jfif"
+              alt="Amnistía Internacional"
+              id="8"
+            />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img
+              src="./img/Fundación Vicente Ferrer.jfif"
+              alt="Fundación Vicente Ferrer"
+              id="9"
+            />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+          <div class="org">
+            <img
+              src="./img/Aldeas Infantiles.jfif"
+              alt="Aldeas Infantiles"
+              id="10"
+            />
+            <input type="number" placeholder="Cantidad (€)" />
+          </div>
+        </div>
+      </section>
+      <aside id="historial">
+        <h2>Donaciones realizadas</h2>
+        <div id="listaDonaciones"></div>
+      </aside>
 
+      <section id="resumen">
+        <h2>Resumen final</h2>
+        <button id="finalizar">Finalizar trámite</button>
+        <div id="resultado"></div>
+      </section>
+    </main>
 
-    
-    
+    <footer>
+      <hr />
+      <p>Proyecto 2º DAW - Página de Donaciones - Carlos Rodríguez</p>
+    </footer>
 
-    
-    <section id="resumen">
-      <h2>Resumen final</h2>
-      <button id="finalizar" >Finalizar trámite</button>
-      <div id="resultado"></div>
-    </section>
-  </main>
-
-  <footer>
-    <hr>
-    <p>Proyecto 2º DAW - Página de Donaciones - Carlos Rodríguez</p>
-  </footer>
-  
-  <script src="./JS/v_2.js"></script>
-</body>
+    <script src="./JS/v_2.js"></script>
+  </body>
 </html>

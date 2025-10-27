@@ -1,17 +1,54 @@
-body{
-    font-family: Arial, sans-serif;
-    background-color: #F1FAEE;
-    color: #1D3557;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1faee;
+  color: #1d3557;
 }
 
 .org img {
-  width: 120px;      
-  max-height: 120px; 
-    display: block;
-    border-radius: 10px;
-  
+  width: 120px;
+  max-height: 120px;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.Contenedororganizaciones2{
+
+.Contenedororganizaciones2 {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
+}
+
+#historial {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 25%;
+  height: 100vh;
+  background-color: #ffffff;
+  border-left: 2px solid #1d3557;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.resaltado {
+  background-color: #ffd166;
+}
+
+#resumen {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#resultado {
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+button {
+  background-color: #1d3557;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
 }
