@@ -52,3 +52,25 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
+
+/* parte 2 de la practica */
+
+
+
+
+#listaDonaciones div {
+    padding: 5px;
+    margin-bottom: 2px;
+    transition: background-color 0.3s;
+}
+
+
+.donacion-ultima {
+    background-color: #f39c12; 
+    color: #fff;
+}
+
+
+.donacion-previa {
+    background-color: #f9e79f; 
+}

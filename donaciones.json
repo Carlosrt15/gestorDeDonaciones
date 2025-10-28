@@ -1,61 +1,61 @@
 {
   "organizaciones": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Cruz Roja",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "UNICEF",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "WWF",
       "multiraza": true,
       "ambito": "internacional"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Médicos Sin Fronteras",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Save the Children",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Greenpeace",
       "multiraza": false,
       "ambito": "nacional"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Cáritas",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Amnistía Internacional",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 9,
+      "id": "9",
       "nombre": "Fundación Vicente Ferrer",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 10,
+      "id": "10",
       "nombre": "Aldeas Infantiles",
       "acogida": true,
       "rangoEdad": "infancia"
@@ -63,7 +63,7 @@
   ],
   "tramiteDonacion": [
     {
-      "id": 1,
+      "id": "1",
       "fecha": "11/2025",
       "donaciones": [
         {
@@ -79,48 +79,37 @@
       ]
     },
     {
-      "id": "4f40",
-      "fecha": "28/10/2025, 14:46:44",
+      "id": "8c07",
+      "fecha": "28/10/2025, 17:18:42",
       "donaciones": [
         {
-          "idOrganizacion": 1,
-          "importeTotal": null,
-          "numDonaciones": 2
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 500,
+          "numDonaciones": 1
         }
       ]
     },
     {
-      "id": "868d",
-      "fecha": "28/10/2025, 14:46:54",
+      "id": "ca30",
+      "fecha": "28/10/2025, 17:19:03",
       "donaciones": [
         {
-          "idOrganizacion": 1,
-          "importeTotal": null,
-          "numDonaciones": 1
-        },
-        {
           "idOrganizacion": 2,
-          "importeTotal": null,
-          "numDonaciones": 1
-        },
-        {
-          "idOrganizacion": 3,
-          "importeTotal": null,
-          "numDonaciones": 1
-        },
-        {
-          "idOrganizacion": 4,
-          "importeTotal": null,
+          "nombre": "UNICEF",
+          "importeTotal": 12900,
           "numDonaciones": 2
         },
         {
-          "idOrganizacion": 5,
-          "importeTotal": null,
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 12500,
           "numDonaciones": 1
         },
         {
-          "idOrganizacion": 6,
-          "importeTotal": null,
+          "idOrganizacion": 5,
+          "nombre": "STC",
+          "importeTotal": 2000,
           "numDonaciones": 1
         }
       ]
