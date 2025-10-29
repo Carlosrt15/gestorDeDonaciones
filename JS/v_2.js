@@ -17,9 +17,9 @@ let historialDonacion = [];
 
 
 organizaciones.forEach(orgs => {
-    let img = document.getElementById(String(orgs.id )); 
+    let img = document.getElementById(String(orgs.id));
     if (img) {
-        img.addEventListener("click", () => contarPulsar(orgs.id ));
+        img.addEventListener("click", () => contarPulsar(orgs.id));
     }
 });
 
@@ -27,7 +27,7 @@ function contarPulsar(id) {
     let orgs = organizaciones.find(o => o.id === id);
     if (!orgs) return;
 
-    let contenedor = document.getElementById(id ).parentElement;
+    let contenedor = document.getElementById(id).parentElement;
     let input = contenedor.querySelector("input");
     let cantidad = parseFloat(input.value);
 
@@ -42,8 +42,8 @@ function contarPulsar(id) {
     totalAportaciones++;
     totalDinero += cantidad;
 
-    input.value = ""; 
-    actualizarFeed(id,cantidad);
+    input.value = "";
+    actualizarFeed(id, cantidad);
 }
 
 
@@ -52,7 +52,7 @@ function actualizarFeed(idOrg, cantidad) {
     historialDonacion.push({ idOrg, cantidad });
 
     let bloque = document.getElementById("listaDonaciones");
-    bloque.innerHTML = ""; 
+    bloque.innerHTML = "";
 
     historialDonacion.forEach((donacion, index) => {
         let org = organizaciones.find(o => o.id === donacion.idOrg);
@@ -61,14 +61,14 @@ function actualizarFeed(idOrg, cantidad) {
         let div = document.createElement("div");
         div.textContent = `${org.nombre}: ${donacion.cantidad.toFixed(2)}€`;
 
-       
+
         div.classList.remove("donacion-ultima", "donacion-previa");
 
-       
+
         if (index === historialDonacion.length - 1) {
             div.classList.add("donacion-ultima");
-        } 
-        
+        }
+
         else if (donacion.idOrg === historialDonacion[historialDonacion.length - 1].idOrg) {
             div.classList.add("donacion-previa");
         }
@@ -98,6 +98,28 @@ function inicializarHtml() {
 
         document.getElementById("resultado").innerHTML = html;
         guardarDonacion();
+
+        setTimeout(() => {
+            console.log("Borrando wel aside y resultado");
+
+            document.getElementById("resultado").innerHTML = "";
+
+            document.getElementById("listaDonaciones").innerHTML = "";
+
+            totalAportaciones = 0;
+            totalDinero = 0;
+            historialDonacion = [];
+
+
+             organizaciones.forEach(o => {
+                o.interacciones = 0;
+                o.total = 0;
+             });
+             console.log("Aqui deberi borrado");
+        }, 10000);
+        
+
+
     });
 }
 
@@ -106,12 +128,12 @@ function guardarDonacion() {
     let fechaActual = new Date().toLocaleString();
     let realizadasDonaciones = organizaciones.filter(o => o.interacciones > 0);
 
-    if (realizadasDonaciones.length === 0) return; 
+    if (realizadasDonaciones.length === 0) return;
 
     let nuevoAporte = {
         fecha: fechaActual,
         donaciones: realizadasDonaciones.map(o => ({
-            
+
             idOrganizacion: o.id,
             nombre: o.nombre,
             importeTotal: o.total,
@@ -124,12 +146,12 @@ function guardarDonacion() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(nuevoAporte)
     })
-    .then(respuesta => respuesta.json())
-    .then(() => {
-        console.log(`Donación guardada el ${fechaActual}`);
-        historial();
-    })
-    .catch(error => console.error("Error al guardar:", error));
+        .then(respuesta => respuesta.json())
+        .then(() => {
+            console.log(`Donación guardada el ${fechaActual}`);
+            historial();
+        })
+        .catch(error => console.error("Error al guardar:", error));
 }
 
 
