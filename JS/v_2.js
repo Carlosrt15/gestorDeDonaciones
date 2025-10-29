@@ -188,5 +188,15 @@ function cargarDatos() {
         .catch(error => console.error("Error al cargar organizaciones:", error));
 }
 
+
+function ventanaFinal(){
+    let donacion = organizaciones.filter(o => o.interacciones > 0);
+    let ventana = window.open("", "infoOrganizaciones", "width=600,height=400");
+     ventana.document.write("<h1>Prueba escritura en vetana</h1>");
+
+
+
+}
+ventanaFinal();
 inicializarHtml();
 cargarDatos();
