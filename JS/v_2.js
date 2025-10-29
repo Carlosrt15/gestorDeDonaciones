@@ -83,10 +83,15 @@ function inicializarHtml() {
         lista.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
         let html = "";
+        let fechaCompraAhora = new Date().toLocaleString();
+        html += "fecha de Compra: "+ fechaCompraAhora;
+        
         for (let i = lista.length - 1; i >= 0; i--) {
             let orgs = lista[i];
+            
             html += orgs.nombre + " ---- " + orgs.interacciones + " aportaciones<br>";
         }
+        
 
         html += "<br>Donación final: " + totalDinero.toFixed(2) + " €<br>";
         if (totalAportaciones > 0) {
