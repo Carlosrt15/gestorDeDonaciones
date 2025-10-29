@@ -47,7 +47,6 @@ function contarPulsar(id) {
 }
 
 
-
 function actualizarFeed(idOrg, cantidad) {
     historialDonacion.push({ idOrg, cantidad });
 
@@ -76,7 +75,6 @@ function actualizarFeed(idOrg, cantidad) {
         bloque.appendChild(div);
     });
 }
-
 
 function inicializarHtml() {
     let button = document.getElementById("finalizar");
@@ -123,7 +121,6 @@ function inicializarHtml() {
     });
 }
 
-
 function guardarDonacion() {
     let fechaActual = new Date().toLocaleString();
     let realizadasDonaciones = organizaciones.filter(o => o.interacciones > 0);
@@ -154,7 +151,6 @@ function guardarDonacion() {
         .catch(error => console.error("Error al guardar:", error));
 }
 
-
 function historial() {
     fetch("http://localhost:3000/tramiteDonacion")
         .then(respuesta => respuesta.json())
@@ -173,8 +169,6 @@ function historial() {
             bloque.innerHTML = html;
         });
 }
-
-
 
 
 function cargarDatos() {
