@@ -84,14 +84,14 @@ function inicializarHtml() {
 
         let html = "";
         let fechaCompraAhora = new Date().toLocaleString();
-        html += "fecha de Compra: "+ fechaCompraAhora;
-        
+        html += "fecha de Compra: " + fechaCompraAhora;
+
         for (let i = lista.length - 1; i >= 0; i--) {
             let orgs = lista[i];
-            
+
             html += orgs.nombre + " ---- " + orgs.interacciones + " aportaciones<br>";
         }
-        
+
 
         html += "<br>Donación final: " + totalDinero.toFixed(2) + " €<br>";
         if (totalAportaciones > 0) {
@@ -101,6 +101,7 @@ function inicializarHtml() {
 
         document.getElementById("resultado").innerHTML = html;
         guardarDonacion();
+        ventanaFinal();
 
         setTimeout(() => {
             console.log("Borrando wel aside y resultado");
@@ -114,16 +115,18 @@ function inicializarHtml() {
             historialDonacion = [];
 
 
-             organizaciones.forEach(o => {
+            organizaciones.forEach(o => {
                 o.interacciones = 0;
                 o.total = 0;
-             });
-             console.log("Aqui deberi borrado");
+            });
+            console.log("Aqui deberi borrado");
         }, 10000);
-        
+
 
 
     });
+
+    
 }
 
 function guardarDonacion() {
@@ -189,14 +192,60 @@ function cargarDatos() {
 }
 
 
-function ventanaFinal(){
+function ventanaFinal() {
     let donacion = organizaciones.filter(o => o.interacciones > 0);
+    if (donacion.length === 0) return;
+
+
     let ventana = window.open("", "infoOrganizaciones", "width=600,height=400");
-     ventana.document.write("<h1>Prueba escritura en vetana</h1>");
+    ventana.document.write("<h2>Organizaciones donadas</h2>");
+    ventana.document.write("<ul>");
+
+
+    for (let i = 0; i < donacion.length; i++) {
+        let o = donacion[i];
+        let texto = "";
+
+
+        if (o.rangoEdad) {
+            texto += "<strong>" + o.nombre + "</strong> trabaja con personas de " + o.rangoEdad;
+            if (o.acogida === true) {
+                texto += " y permite acogidas.";
+            } else {
+                texto += " y no permite acogidas.";
+            }
+        }
+
+
+        else if (o.ambito) {
+            texto += "<strong>" + o.nombre + "</strong> trabaja con animales ";
+            if (o.multiraza === true) {
+                texto += "de distintas razas ";
+            } else {
+                texto += "de una sola raza ";
+            }
+            texto += "a nivel " + o.ambito + ".";
+        }
+
+
+        else {
+            texto += "<strong>" + o.nombre + "</strong>: organización sin información detallada.";
+        }
+
+        ventana.document.write("<li>" + texto + "</li>");
+    }
+
+    ventana.document.write("</ul>");
+    
+
+    
+    setTimeout(function () {
+        ventana.close();
+    }, 10000);
 
 
 
 }
-ventanaFinal();
+
 inicializarHtml();
 cargarDatos();
