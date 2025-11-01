@@ -126,7 +126,7 @@ function inicializarHtml() {
 
     });
 
-    
+
 }
 
 function guardarDonacion() {
@@ -180,12 +180,21 @@ function historial() {
 
 
 function cargarDatos() {
-    fetch("http://localhost:3000/organizaciones")
+    return fetch("http://localhost:3000/organizaciones")
         .then(respuesta => respuesta.json())
         .then(datos => {
             datos.forEach(dato => {
+
+                dato.id = Number(dato.id); // si no da errro de string
+
                 let org = organizaciones.find(o => o.id === dato.id);
                 if (org) org.nombre = dato.nombre;
+
+                if (dato.acogida !== undefined) org.acogida = dato.acogida;
+                if (dato.rangoEdad) org.rangoEdad = dato.rangoEdad;
+                if (dato.multiraza !== undefined) org.multiraza = dato.multiraza;
+                if (dato.ambito) org.ambito = dato.ambito;
+
             });
         })
         .catch(error => console.error("Error al cargar organizaciones:", error));
@@ -229,16 +238,16 @@ function ventanaFinal() {
 
 
         else {
-            texto += "<strong>" + o.nombre + "</strong>: organización sin información detallada.";
+            texto += "<strong>" + o.nombre + "</strong>: Error no pilla el json.";
         }
 
         ventana.document.write("<li>" + texto + "</li>");
     }
 
     ventana.document.write("</ul>");
-    
 
-    
+
+
     setTimeout(function () {
         ventana.close();
     }, 10000);
