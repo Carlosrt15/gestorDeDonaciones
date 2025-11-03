@@ -206,7 +206,7 @@ function ventanaFinal() {
     if (donacion.length === 0) return;
 
 
-    let ventana = window.open("", "infoOrganizaciones", "width=600,height=400");
+    let ventana = window.open("", "infoOrganizaciones", "width=1080,height=1090");
     ventana.document.write("<h2>Organizaciones donadas</h2>");
     ventana.document.write("<ul>");
 
@@ -217,7 +217,7 @@ function ventanaFinal() {
 
 
         if (o.rangoEdad) {
-            texto += "<strong>" + o.nombre + "</strong> trabaja con personas de " + o.rangoEdad;
+            texto += "<p>" + o.nombre + "</p> trabaja con personas de " + o.rangoEdad;
             if (o.acogida === true) {
                 texto += " y permite acogidas.";
             } else {
@@ -238,7 +238,7 @@ function ventanaFinal() {
 
 
         else {
-            texto += "<strong>" + o.nombre + "</strong>: Error no pilla el json.";
+            texto += "<p>" + o.nombre + "</p>: Error no pilla el json.";
         }
 
         ventana.document.write("<li>" + texto + "</li>");

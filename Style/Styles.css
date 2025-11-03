@@ -45,7 +45,7 @@ body {
 }
 
 button {
-  background-color: #1d3557;
+  background-color: #1954a7;
   color: white;
   border: none;
   padding: 8px 14px;
@@ -66,11 +66,11 @@ button {
 
 
 .donacion-ultima {
-    background-color: #f39c12; 
-    color: #fff;
+    background-color: #a56806; 
+    color: #e41212;
 }
 
 
 .donacion-previa {
-    background-color: #f9e79f; 
+    background-color: #f1c511; 
 }

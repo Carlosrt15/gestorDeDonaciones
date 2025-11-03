@@ -1,61 +1,61 @@
 {
   "organizaciones": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Cruz Roja",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "UNICEF",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "WWF",
       "multiraza": true,
       "ambito": "internacional"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Médicos Sin Fronteras",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Save the Children",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Greenpeace",
       "multiraza": true,
       "ambito": "nacional"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Cáritas",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Amnistía Internacional",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 9,
+      "id": "9",
       "nombre": "Fundación Vicente Ferrer",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 10,
+      "id": "10",
       "nombre": "Aldeas Infantiles",
       "acogida": true,
       "rangoEdad": "infancia"
@@ -75,6 +75,168 @@
           "idOrganizacion": 2,
           "importeTotal": 37.23,
           "numDonaciones": 2
+        }
+      ]
+    },
+    {
+      "id": "af63",
+      "fecha": "3/11/2025, 8:10:26",
+      "donaciones": [
+        {
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 222,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "6c6e",
+      "fecha": "3/11/2025, 8:10:34",
+      "donaciones": [
+        {
+          "idOrganizacion": 4,
+          "nombre": "Médicos Sin Fronteras",
+          "importeTotal": 22225,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "0134",
+      "fecha": "3/11/2025, 8:10:42",
+      "donaciones": [
+        {
+          "idOrganizacion": 4,
+          "nombre": "Médicos Sin Fronteras",
+          "importeTotal": 222,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "c661",
+      "fecha": "3/11/2025, 8:12:55",
+      "donaciones": [
+        {
+          "idOrganizacion": 2,
+          "nombre": "UNICEF",
+          "importeTotal": 22,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "6142",
+      "fecha": "3/11/2025, 8:13:11",
+      "donaciones": [
+        {
+          "idOrganizacion": 1,
+          "nombre": "Cruz Roja",
+          "importeTotal": 22,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 2,
+          "nombre": "UNICEF",
+          "importeTotal": 23,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 32,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "d4fa",
+      "fecha": "3/11/2025, 8:15:01",
+      "donaciones": [
+        {
+          "idOrganizacion": 2,
+          "nombre": "UNICEF",
+          "importeTotal": 12,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "e742",
+      "fecha": "3/11/2025, 8:19:02",
+      "donaciones": [
+        {
+          "idOrganizacion": 4,
+          "nombre": "Médicos Sin Fronteras",
+          "importeTotal": 22,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "41df",
+      "fecha": "3/11/2025, 8:19:49",
+      "donaciones": [
+        {
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 3611,
+          "numDonaciones": 4
+        },
+        {
+          "idOrganizacion": 4,
+          "nombre": "Médicos Sin Fronteras",
+          "importeTotal": 32777,
+          "numDonaciones": 3
+        }
+      ]
+    },
+    {
+      "id": "4270",
+      "fecha": "3/11/2025, 8:21:39",
+      "donaciones": [
+        {
+          "idOrganizacion": 10,
+          "nombre": "Aldeas Infantiles",
+          "importeTotal": 33,
+          "numDonaciones": 2
+        }
+      ]
+    },
+    {
+      "id": "3d52",
+      "fecha": "3/11/2025, 8:23:33",
+      "donaciones": [
+        {
+          "idOrganizacion": 5,
+          "nombre": "Save the Children",
+          "importeTotal": 23,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 9,
+          "nombre": "Fundación Vicente Ferrer",
+          "importeTotal": 12,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "d64e",
+      "fecha": "3/11/2025, 8:23:43",
+      "donaciones": [
+        {
+          "idOrganizacion": 3,
+          "nombre": "WWF",
+          "importeTotal": 16,
+          "numDonaciones": 2
+        },
+        {
+          "idOrganizacion": 9,
+          "nombre": "Fundación Vicente Ferrer",
+          "importeTotal": 12,
+          "numDonaciones": 1
         }
       ]
     }
