@@ -15,7 +15,7 @@ let totalAportaciones = 0;
 let totalDinero = 0;
 let historialDonacion = [];
 
-
+// esto no debe estar asi por que es codigo fuera de una funcion
 organizaciones.forEach(orgs => {
     let img = document.getElementById(String(orgs.id));
     if (img) {
@@ -198,6 +198,19 @@ function cargarDatos() {
             });
         })
         .catch(error => console.error("Error al cargar organizaciones:", error));
+}
+
+
+function generarOrganizaciones() {
+    fetch("http://localhost:3000/organizaciones")
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            let contenedor = document.getElementById("contenedorOrganizaciones");
+            contenedor.innerHTML = "";
+
+
+        });
+
 }
 
 
