@@ -1,15 +1,4 @@
-let organizaciones = [
-    { id: 1, nombre: "Cruz Roja", interacciones: 0, total: 0 },
-    { id: 2, nombre: "UNICEF", interacciones: 0, total: 0 },
-    { id: 3, nombre: "WWF", interacciones: 0, total: 0 },
-    { id: 4, nombre: "MSF", interacciones: 0, total: 0 },
-    { id: 5, nombre: "STC", interacciones: 0, total: 0 },
-    { id: 6, nombre: "Greenpeace", interacciones: 0, total: 0 },
-    { id: 7, nombre: "Cáritas", interacciones: 0, total: 0 },
-    { id: 8, nombre: "Amnistía", interacciones: 0, total: 0 },
-    { id: 9, nombre: "FVF", interacciones: 0, total: 0 },
-    { id: 10, nombre: "Aldeas", interacciones: 0, total: 0 },
-];
+let organizaciones = [];
 
 let totalAportaciones = 0;
 let totalDinero = 0;
@@ -17,6 +6,12 @@ let historialDonacion = [];
 
 
 function contarPulsar(id) {
+    
+    console.log("CLICK en organización:", id);
+        let orgs1 = organizaciones.find(o => o.id === id);
+    console.log("Org encontrada:", orgs1);
+
+
     let orgs = organizaciones.find(o => o.id === id);
     if (!orgs) return;
 
@@ -67,64 +62,12 @@ function actualizarFeed(idOrg, cantidad) {
 
         bloque.appendChild(div);
 
-            // Esto sirve para bajar el scroll al ultimo elemento
+        // Esto sirve para bajar el scroll al ultimo elemento
         bloque.scrollTop = bloque.scrollHeight;
 
     });
 }
 
-function inicializarHtml() {
-    let button = document.getElementById("finalizar");
-    button.addEventListener("click", () => {
-        let lista = organizaciones.filter(o => o.interacciones > 0);
-        lista.sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-        let html = "";
-        let fechaCompraAhora = new Date().toLocaleString();
-        html += "fecha de Compra: " + fechaCompraAhora;
-
-        for (let i = lista.length - 1; i >= 0; i--) {
-            let orgs = lista[i];
-
-            html += orgs.nombre + " ---- " + orgs.interacciones + " aportaciones<br>";
-        }
-
-
-        html += "<br>Donación final: " + totalDinero.toFixed(2) + " €<br>";
-        if (totalAportaciones > 0) {
-            let media = (totalDinero / totalAportaciones).toFixed(2);
-            html += "Donación media: " + media + " €/aportación";
-        }
-
-        document.getElementById("resultado").innerHTML = html;
-        guardarDonacion();
-        ventanaFinal();
-
-        setTimeout(() => {
-            console.log("Borrando wel aside y resultado");
-
-            document.getElementById("resultado").innerHTML = "";
-
-            document.getElementById("listaDonaciones").innerHTML = "";
-
-            totalAportaciones = 0;
-            totalDinero = 0;
-            historialDonacion = [];
-
-
-            organizaciones.forEach(o => {
-                o.interacciones = 0;
-                o.total = 0;
-            });
-            console.log("Aqui deberi borrado");
-        }, 10000);
-
-
-
-    });
-
-
-}
 
 function guardarDonacion() {
     let fechaActual = new Date().toLocaleString();
@@ -180,58 +123,48 @@ function cargarDatos() {
     return fetch("http://localhost:3000/organizaciones")
         .then(respuesta => respuesta.json())
         .then(datos => {
-            datos.forEach(dato => {
 
-                dato.id = Number(dato.id); // si no da errro de string
+            organizaciones = datos.map(dato => ({
+                id: Number(dato.id),
+                nombre: dato.nombre,
+                img: dato.img,
+                acogida: dato.acogida,
+                rangoEdad: dato.rangoEdad,
+                multiraza: dato.multiraza,
+                ambito: dato.ambito,
 
-                let org = organizaciones.find(o => o.id === dato.id);
-                if (org) org.nombre = dato.nombre;
-
-                if (dato.acogida !== undefined) org.acogida = dato.acogida;
-                if (dato.rangoEdad) org.rangoEdad = dato.rangoEdad;
-                if (dato.multiraza !== undefined) org.multiraza = dato.multiraza;
-                if (dato.ambito) org.ambito = dato.ambito;
-
-            });
+                interacciones: 0,
+                total: 0
+            }));
         })
-        .catch(error => console.error("Error al cargar organizaciones:", error));
+        .catch(error => console.info("Error al cargar organizaciones:", error));
 }
 
 
+
 function generarOrganizaciones() {
-    fetch("http://localhost:3000/organizaciones")
-        .then(respuesta => respuesta.json())
-        .then(datos => {
-            let contenedor = document.getElementById("contenedorOrganizaciones");
-            contenedor.innerHTML = "";
+    let contenedor = document.getElementById("contenedorOrganizaciones");
+    contenedor.innerHTML = "";
 
+    organizaciones.forEach(org => {
+        let div = document.createElement("div");
+        div.classList.add("org");
 
-            datos.forEach(org => {
+        let imagen = document.createElement("img");
+        imagen.src = org.img;
+        imagen.alt = org.nombre;
+        imagen.id = org.id;
 
-                let div = document.createElement("div");
-                div.classList.add("org");
+        let input = document.createElement("input");
+        input.type = "number";
+        input.placeholder = "Cantidad €";
 
-                let imagen = document.createElement("img");
-                imagen.src = org.img;
-                imagen.alt = org.nombre;
-                imagen.id = org.id;
+        imagen.addEventListener("click", () => contarPulsar(org.id));
 
-                let input = document.createElement("input");
-                input.type = "number";
-                input.placeholder = "Cantidad €";
-
-                imagen.addEventListener("click", () => contarPulsar(org.id));
-
-                
-                div.appendChild(imagen);
-                div.appendChild(input);
-                contenedor.appendChild(div);
-            });
-
-
-        })
-        .catch(error => console.log("Error al cargar las orgs", error));
-
+        div.appendChild(imagen);
+        div.appendChild(input);
+        contenedor.appendChild(div);
+    });
 }
 
 
@@ -289,8 +222,9 @@ function ventanaFinal() {
 
 
 }
+cargarDatos().then(() => {
+    generarOrganizaciones();
+});
 
-generarOrganizaciones();
 
-inicializarHtml();
-cargarDatos();
+
