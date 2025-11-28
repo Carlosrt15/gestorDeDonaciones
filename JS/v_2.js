@@ -15,13 +15,6 @@ let totalAportaciones = 0;
 let totalDinero = 0;
 let historialDonacion = [];
 
-// esto no debe estar asi por que es codigo fuera de una funcion
-organizaciones.forEach(orgs => {
-    let img = document.getElementById(String(orgs.id));
-    if (img) {
-        img.addEventListener("click", () => contarPulsar(orgs.id));
-    }
-});
 
 function contarPulsar(id) {
     let orgs = organizaciones.find(o => o.id === id);
@@ -73,6 +66,10 @@ function actualizarFeed(idOrg, cantidad) {
         }
 
         bloque.appendChild(div);
+
+            // Esto sirve para bajar el scroll al ultimo elemento
+        bloque.scrollTop = bloque.scrollHeight;
+
     });
 }
 
@@ -209,7 +206,31 @@ function generarOrganizaciones() {
             contenedor.innerHTML = "";
 
 
-        });
+            datos.forEach(org => {
+
+                let div = document.createElement("div");
+                div.classList.add("org");
+
+                let imagen = document.createElement("img");
+                imagen.src = org.img;
+                imagen.alt = org.nombre;
+                imagen.id = org.id;
+
+                let input = document.createElement("input");
+                input.type = "number";
+                input.placeholder = "Cantidad €";
+
+                imagen.addEventListener("click", () => contarPulsar(org.id));
+
+                
+                div.appendChild(imagen);
+                div.appendChild(input);
+                contenedor.appendChild(div);
+            });
+
+
+        })
+        .catch(error => console.log("Error al cargar las orgs", error));
 
 }
 
@@ -268,6 +289,8 @@ function ventanaFinal() {
 
 
 }
+
+generarOrganizaciones();
 
 inicializarHtml();
 cargarDatos();
