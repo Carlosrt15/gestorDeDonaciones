@@ -222,9 +222,16 @@ function ventanaFinal() {
 
 
 }
+
+// Si no no funciona y carga los datos despues
 cargarDatos().then(() => {
     generarOrganizaciones();
 });
+
+function mostrarFormulario() {
+
+    
+}
 
 
 
