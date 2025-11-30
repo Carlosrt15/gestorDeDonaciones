@@ -7,9 +7,7 @@ let historialDonacion = [];
 
 function contarPulsar(id) {
     
-    console.log("CLICK en organización:", id);
-        let orgs1 = organizaciones.find(o => o.id === id);
-    console.log("Org encontrada:", orgs1);
+    
 
 
     let orgs = organizaciones.find(o => o.id === id);
