@@ -223,15 +223,36 @@ function ventanaFinal() {
 
 }
 
+
+
+function inicializarFormulario() {
+
+    let socioRadios = document.getElementsByName("socio");
+    let campoCodigo = document.getElementById("campoCodigo");
+    let formulario = document.getElementById("formDonacion");
+    let btnLimpiar = document.getElementById("btnLimpiar");
+
+    
+    socioRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            if (radio.value === "si") {
+                campoCodigo.style.display = "block";
+            } else {
+                campoCodigo.style.display = "none";
+            }
+        });
+    });
+
+    
+    btnLimpiar.addEventListener("click", () => {
+        formulario.reset();
+        campoCodigo.style.display = "none";  
+    });
+}
+
 // Si no no funciona y carga los datos despues
 cargarDatos().then(() => {
     generarOrganizaciones();
 });
 
-function mostrarFormulario() {
-
-    
-}
-
-
-
+inicializarFormulario();
