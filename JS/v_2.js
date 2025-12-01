@@ -274,7 +274,7 @@ function validarFormulario(event) {
     let codigo = document.getElementById("codigoSocio");
 
     document.querySelectorAll("label").forEach(l => l.style.color = "black");
-
+        // debo cambiar el .style color por una clase 
     if (nombre.value.length < 4 || nombre.value.length > 15) {
         errores.push("- El nombre debe tener entre 4 y 15 caracteres.");
         document.querySelector("label[for='nombre']").style.color = "red";
@@ -290,7 +290,7 @@ function validarFormulario(event) {
         document.querySelector("label[for='direccion']").style.color = "red";
     }
 
-    const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!patronEmail.test(email.value)) {
         errores.push("- El correo electrónico no es valido.");
         document.querySelector("label[for='email']").style.color = "red";
@@ -307,7 +307,7 @@ function validarFormulario(event) {
     }
 
     if (socio && socio.value === "si") {
-        const patronCodigo = /^[A-Za-z]{3}[0-9]{4}[\/_.#&]$/;
+    let patronCodigo = /^[A-Za-z]{3}[0-9]{4}[\/_.#&]$/;
         if (!patronCodigo.test(codigo.value)) {
             errores.push(" El código de socio no es valido (3 letras + 4 números + símbolo).");
             document.querySelector("label[for='codigoSocio']").style.color = "red";
