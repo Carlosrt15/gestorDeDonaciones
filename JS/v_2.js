@@ -67,54 +67,8 @@ function actualizarFeed(idOrg, cantidad) {
 }
 
 
-function guardarDonacion() {
-    let fechaActual = new Date().toLocaleString();
-    let realizadasDonaciones = organizaciones.filter(o => o.interacciones > 0);
 
-    if (realizadasDonaciones.length === 0) return;
 
-    let nuevoAporte = {
-        fecha: fechaActual,
-        donaciones: realizadasDonaciones.map(o => ({
-
-            idOrganizacion: o.id,
-            nombre: o.nombre,
-            importeTotal: o.total,
-            numDonaciones: o.interacciones
-        }))
-    };
-
-    fetch("http://localhost:3000/tramiteDonacion", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(nuevoAporte)
-    })
-        .then(respuesta => respuesta.json())
-        .then(() => {
-            console.log(`Donación guardada el ${fechaActual}`);
-            historial();
-        })
-        .catch(error => console.error("Error al guardar:", error));
-}
-
-function historial() {
-    fetch("http://localhost:3000/tramiteDonacion")
-        .then(respuesta => respuesta.json())
-        .then(datos => {
-            let bloque = document.getElementById("listaDonaciones");
-            let html = "";
-            datos.forEach(tramite => {
-                html += `<div><p>Fecha: ${tramite.fecha}</p>`;
-                html += tramite.donaciones.map(d => {
-                    let org = organizaciones.find(o => o.id === d.idOrganizacion);
-                    let nombreOrg = org ? org.nombre : "Desconocida";
-                    return `${nombreOrg}: ${d.importeTotal.toFixed(2)}€ (${d.numDonaciones} donaciones)`;
-                }).join("<br>");
-                html += "<hr></div>";
-            });
-            bloque.innerHTML = html;
-        });
-}
 
 
 function cargarDatos() {
@@ -166,60 +120,6 @@ function generarOrganizaciones() {
 }
 
 
-function ventanaFinal() {
-    let donacion = organizaciones.filter(o => o.interacciones > 0);
-    if (donacion.length === 0) return;
-
-
-    let ventana = window.open("", "infoOrganizaciones", "width=1080,height=1090");
-    ventana.document.write("<h2>Organizaciones donadas</h2>");
-    ventana.document.write("<ul>");
-
-
-    for (let i = 0; i < donacion.length; i++) {
-        let o = donacion[i];
-        let texto = "";
-
-
-        if (o.rangoEdad) {
-            texto += "<p>" + o.nombre + "</p> trabaja con personas de " + o.rangoEdad;
-            if (o.acogida === true) {
-                texto += " y permite acogidas.";
-            } else {
-                texto += " y no permite acogidas.";
-            }
-        }
-
-
-        else if (o.ambito) {
-            texto += "<strong>" + o.nombre + "</strong> trabaja con animales ";
-            if (o.multiraza === true) {
-                texto += "de distintas razas ";
-            } else {
-                texto += "de una sola raza ";
-            }
-            texto += "a nivel " + o.ambito + ".";
-        }
-
-
-        else {
-            texto += "<p>" + o.nombre + "</p>: Error no pilla el json.";
-        }
-
-        ventana.document.write("<li>" + texto + "</li>");
-    }
-
-    ventana.document.write("</ul>");
-
-
-
-    setTimeout(function () {
-        ventana.close();
-    }, 10000);
-
-
-
-}
 
 
 
