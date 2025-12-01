@@ -246,6 +246,9 @@ function inicializarFormulario() {
         formulario.reset();
         campoCodigo.style.display = "none";  
     });
+
+        document.getElementById("btnRealizar").addEventListener("click", validarFormulario);
+
 }
 
 // Si no no funciona y carga los datos despues
@@ -254,3 +257,67 @@ cargarDatos().then(() => {
 });
 
 inicializarFormulario();
+
+
+
+function validarFormulario(event) {
+    event.preventDefault();
+
+    let errores = [];
+
+    let nombre = document.getElementById("nombre");
+    let apellidos = document.getElementById("apellidos");
+    let direccion = document.getElementById("direccion");
+    let email = document.getElementById("email");
+    let pago = document.querySelector("input[name='pago']:checked");
+    let socio = document.querySelector("input[name='socio']:checked");
+    let codigo = document.getElementById("codigoSocio");
+
+    document.querySelectorAll("label").forEach(l => l.style.color = "black");
+
+    if (nombre.value.length < 4 || nombre.value.length > 15) {
+        errores.push("- El nombre debe tener entre 4 y 15 caracteres.");
+        document.querySelector("label[for='nombre']").style.color = "red";
+    }
+
+    if (apellidos.value === "") {
+        errores.push("- Debe introducir los apellidos.");
+        document.querySelector("label[for='apellidos']").style.color = "red";
+    }
+
+    if (direccion.value === "") {
+        errores.push("- Debe introducir la dirección.");
+        document.querySelector("label[for='direccion']").style.color = "red";
+    }
+
+    const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!patronEmail.test(email.value)) {
+        errores.push("- El correo electrónico no es valido.");
+        document.querySelector("label[for='email']").style.color = "red";
+    }
+
+    if (!pago) {
+        errores.push(" Debe seleccionar un mtodo de pago.");
+        document.querySelector("#formDonacion p:nth-of-type(1)").style.color = "red";
+    }
+
+    if (!socio) {
+        errores.push(" Debe indicar si es socio.");
+        document.querySelector("#formDonacion p:nth-of-type(2)").style.color = "red";
+    }
+
+    if (socio && socio.value === "si") {
+        const patronCodigo = /^[A-Za-z]{3}[0-9]{4}[\/_.#&]$/;
+        if (!patronCodigo.test(codigo.value)) {
+            errores.push(" El código de socio no es valido (3 letras + 4 números + símbolo).");
+            document.querySelector("label[for='codigoSocio']").style.color = "red";
+        }
+    }
+
+    if (errores.length > 0) {
+        alert("Errores encontrados:\n" + errores.join("\n"));
+        return;
+    }
+
+    abrirVentanaFinal();
+}
