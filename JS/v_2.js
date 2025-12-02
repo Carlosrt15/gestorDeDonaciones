@@ -217,41 +217,21 @@ function validarFormulario(event) {
 
 function abrirVentanaFinal() {
 
-    let ventana = window.open(
-        "",
+    let fechaActual = new Date().toLocaleString();
+    let lista = organizaciones.filter(o => o.interacciones > 0);
+
+    let resumen = {
+        fecha: fechaActual,
+        lista: lista,
+        total: totalDinero,
+        media: totalAportaciones > 0 ? (totalDinero / totalAportaciones).toFixed(2) : 0
+    };
+
+    sessionStorage.setItem("resumenDonacion", JSON.stringify(resumen));
+
+    window.open(
+        "ventana.html",
         "ventanaFinal",
         "width=500,height=300,toolbar=no,location=no,scrollbars=yes"
     );
-
-    let fechaActual = new Date().toLocaleString();
-
-    let lista = organizaciones.filter(o => o.interacciones > 0);
-
-    let html = "";
-    html += "<h2>Resumen de la donación</h2>";
-    html += "<p>Fecha de compra: " + fechaActual + "</p>";
-
-    lista.forEach(org => {
-        html += `<p>${org.nombre} ---- ${org.interacciones} aportaciones</p>`;
-    });
-
-    html += `<p><strong>Donación final: ${totalDinero.toFixed(2)} €</strong></p>`;
-
-    if (totalAportaciones > 0) {
-        let media = (totalDinero / totalAportaciones).toFixed(2);
-        html += `<p>Donación media: ${media} €/aportación</p>`;
-    }
-
-    html += `<button id="volver">Volver</button>`;
-    html += `<button id="terminar">Terminar pedido</button>`;
-
-    ventana.document.body.innerHTML = html;
-
-    ventana.document.getElementById("volver").onclick = function () {
-        ventana.close();
-    };
-
-    ventana.document.getElementById("terminar").onclick = function () {
-        terminarPedido(ventana, fechaActual);
-    };
 }
