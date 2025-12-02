@@ -76,3 +76,8 @@ button {
 .donacion-previa {
     background-color: #f1c511; 
 }
+
+.formVacio {
+  color: #f00707;
+
+}

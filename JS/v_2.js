@@ -221,7 +221,7 @@ function validarFormulario(event) {
 
     abrirVentanaFinal();
 }
-
+    // Sersion Storage para ventana final
 
 function abrirVentanaFinal() {
 
