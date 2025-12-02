@@ -6,10 +6,7 @@ let historialDonacion = [];
 
 
 function contarPulsar(id) {
-    
-    
-
-
+       
     let orgs = organizaciones.find(o => o.id === id);
     if (!orgs) return;
 
@@ -69,8 +66,6 @@ function actualizarFeed(idOrg, cantidad) {
 
 
 
-
-
 function cargarDatos() {
     return fetch("http://localhost:3000/organizaciones")
         .then(respuesta => respuesta.json())
@@ -118,9 +113,6 @@ function generarOrganizaciones() {
         contenedor.appendChild(div);
     });
 }
-
-
-
 
 
 function inicializarFormulario() {
