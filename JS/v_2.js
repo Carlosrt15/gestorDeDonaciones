@@ -6,7 +6,7 @@ let historialDonacion = [];
 
 
 function contarPulsar(id) {
-       
+
     let orgs = organizaciones.find(o => o.id === id);
     if (!orgs) return;
 
@@ -122,7 +122,7 @@ function inicializarFormulario() {
     let formulario = document.getElementById("formDonacion");
     let btnLimpiar = document.getElementById("btnLimpiar");
 
-    
+
     socioRadios.forEach(radio => {
         radio.addEventListener("change", () => {
             if (radio.value === "si") {
@@ -133,13 +133,13 @@ function inicializarFormulario() {
         });
     });
 
-    
+
     btnLimpiar.addEventListener("click", () => {
         formulario.reset();
-        campoCodigo.style.display = "none";  
+        campoCodigo.style.display = "none";
     });
 
-        document.getElementById("btnRealizar").addEventListener("click", validarFormulario);
+    document.getElementById("btnRealizar").addEventListener("click", validarFormulario);
 
 }
 
@@ -166,7 +166,7 @@ function validarFormulario(event) {
     let codigo = document.getElementById("codigoSocio");
 
     document.querySelectorAll("label").forEach(l => l.style.color = "black");
-        // debo cambiar el .style color por una clase 
+    // debo cambiar el .style color por una clase 
     if (nombre.value.length < 4 || nombre.value.length > 15) {
         errores.push("- El nombre debe tener entre 4 y 15 caracteres.");
         document.querySelector("label[for='nombre']").style.color = "red";
@@ -199,7 +199,7 @@ function validarFormulario(event) {
     }
 
     if (socio && socio.value === "si") {
-    let patronCodigo = /^[A-Za-z]{3}[0-9]{4}[\/_.#&]$/;
+        let patronCodigo = /^[A-Za-z]{3}[0-9]{4}[\/_.#&]$/;
         if (!patronCodigo.test(codigo.value)) {
             errores.push(" El código de socio no es valido (3 letras + 4 números + símbolo).");
             document.querySelector("label[for='codigoSocio']").style.color = "red";
@@ -213,7 +213,7 @@ function validarFormulario(event) {
 
     abrirVentanaFinal();
 }
-    // Sersion Storage para ventana final
+// Sersion Storage para ventana final
 
 function abrirVentanaFinal() {
 
@@ -235,3 +235,38 @@ function abrirVentanaFinal() {
         "width=500,height=300,toolbar=no,location=no,scrollbars=yes"
     );
 }
+
+function terminarPedido(fechaActual) {
+
+    let realizadasDonaciones = organizaciones.filter(o => o.interacciones > 0);
+
+    let nuevoAporte = {
+        fecha: fechaActual,
+        donaciones: realizadasDonaciones.map(o => ({
+            idOrganizacion: o.id,
+            nombre: o.nombre,
+            importeTotal: o.total,
+            numDonaciones: o.interacciones
+        }))
+    };
+
+    fetch("http://localhost:3000/tramiteDonacion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevoAporte)
+    });
+
+    organizaciones.forEach(o => {
+        o.interacciones = 0;
+        o.total = 0;
+    });
+
+    historialDonacion = [];
+    totalAportaciones = 0;
+    totalDinero = 0;
+
+    document.getElementById("listaDonaciones").innerHTML = "";
+    document.getElementById("formDonacion").reset();
+    document.getElementById("campoCodigo").style.display = "none";
+}
+

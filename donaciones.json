@@ -1,76 +1,142 @@
 {
   "organizaciones": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Cruz Roja",
       "img": "img/cruzRoja.png",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "UNICEF",
       "img": "img/unicef.png",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "WWF",
       "img": "img/wwf.png",
       "multiraza": true,
       "ambito": "internacional"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Médicos Sin Fronteras",
       "img": "img/medicos.jpg",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Save the Children",
       "img": "img/savetheclindren.jfif",
       "acogida": false,
       "rangoEdad": "infancia"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Greenpeace",
       "img": "img/Greenpeace.jpg",
       "multiraza": true,
       "ambito": "nacional"
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Cáritas",
       "img": "img/Cáritas.png",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "Amnistía Internacional",
       "img": "img/Amnistía Internacional.jfif",
       "acogida": false,
       "rangoEdad": "adolescencia"
     },
     {
-      "id": 9,
+      "id": "9",
       "nombre": "Fundación Vicente Ferrer",
       "img": "img/Fundación Vicente Ferrer.jfif",
       "acogida": true,
       "rangoEdad": "tercera edad"
     },
     {
-      "id": 10,
+      "id": "10",
       "nombre": "Aldeas Infantiles",
       "img": "img/Aldeas Infantiles.jfif",
       "acogida": true,
       "rangoEdad": "infancia"
     }
   ],
-
-  "tramiteDonacion": []
+  "tramiteDonacion": [
+    {
+      "id": "fe3e",
+      "fecha": "2/12/2025, 17:48:11",
+      "donaciones": [
+        {
+          "idOrganizacion": 1,
+          "nombre": "Cruz Roja",
+          "importeTotal": 2,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 2,
+          "nombre": "UNICEF",
+          "importeTotal": 6,
+          "numDonaciones": 2
+        },
+        {
+          "idOrganizacion": 5,
+          "nombre": "Save the Children",
+          "importeTotal": 2,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 6,
+          "nombre": "Greenpeace",
+          "importeTotal": 3,
+          "numDonaciones": 2
+        },
+        {
+          "idOrganizacion": 7,
+          "nombre": "Cáritas",
+          "importeTotal": 90,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 9,
+          "nombre": "Fundación Vicente Ferrer",
+          "importeTotal": 4,
+          "numDonaciones": 1
+        },
+        {
+          "idOrganizacion": 10,
+          "nombre": "Aldeas Infantiles",
+          "importeTotal": 3,
+          "numDonaciones": 1
+        }
+      ]
+    },
+    {
+      "id": "82d1",
+      "fecha": "2/12/2025, 17:49:27",
+      "donaciones": [
+        {
+          "idOrganizacion": 2,
+          "nombre": "UNICEF",
+          "importeTotal": 112,
+          "numDonaciones": 2
+        },
+        {
+          "idOrganizacion": 10,
+          "nombre": "Aldeas Infantiles",
+          "importeTotal": 3526,
+          "numDonaciones": 3
+        }
+      ]
+    }
+  ]
 }
