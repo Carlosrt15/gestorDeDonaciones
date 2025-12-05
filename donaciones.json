@@ -119,24 +119,7 @@
           "numDonaciones": 1
         }
       ]
-    },
-    {
-      "id": "82d1",
-      "fecha": "2/12/2025, 17:49:27",
-      "donaciones": [
-        {
-          "idOrganizacion": 2,
-          "nombre": "UNICEF",
-          "importeTotal": 112,
-          "numDonaciones": 2
-        },
-        {
-          "idOrganizacion": 10,
-          "nombre": "Aldeas Infantiles",
-          "importeTotal": 3526,
-          "numDonaciones": 3
-        }
-      ]
     }
+    
   ]
 }
